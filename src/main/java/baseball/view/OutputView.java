@@ -1,5 +1,7 @@
 package baseball.view;
 
+import baseball.model.Result;
+
 public class OutputView {
 
     private static final String START_MESSAGE = "숫자 야구 게임을 시작합니다.";
@@ -13,11 +15,11 @@ public class OutputView {
         System.out.println(START_MESSAGE);
     }
 
-    public static void printResultMessage(int ballCount, int strikeCount) {
-        printOnlyBall(ballCount, strikeCount);
-        printOnlyStrike(ballCount, strikeCount);
-        printBallAndStrike(ballCount, strikeCount);
-        printNothing(ballCount, strikeCount);
+    public static void printResultMessage(Result result) {
+        printOnlyBall(result.getBallCount(), result.getStrikeCount());
+        printOnlyStrike(result.getBallCount(), result.getStrikeCount());
+        printBallAndStrike(result.getBallCount(), result.getStrikeCount());
+        printNothing(result.getBallCount(), result.getStrikeCount());
     }
 
     private static void printOnlyBall(int ballCount, int strikeCount) {
@@ -34,7 +36,7 @@ public class OutputView {
 
     private static void printBallAndStrike(int ballCount, int strikeCount) {
         if (ballCount != ZERO && strikeCount != ZERO) {
-            System.out.println(ballCount + BALL+ SPACE + strikeCount + STRIKE);
+            System.out.println(ballCount + BALL + SPACE + strikeCount + STRIKE);
         }
     }
 

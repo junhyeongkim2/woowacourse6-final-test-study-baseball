@@ -16,4 +16,14 @@ public class Result {
         }
         return false;
     }
+
+    public int getBallCount() {
+        return this.ballCount;
+    }
+
+    public int getStrikeCount() {
+        return this.strikeCount;
+    }
+
+
 }

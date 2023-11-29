@@ -1,5 +1,6 @@
 package baseball.view;
 
+import baseball.model.Result;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import org.junit.jupiter.api.DisplayName;
@@ -42,7 +43,7 @@ public class OutputViewTest {
         int ballCount = 1;
         int StrikeCount = 1;
         //when
-        OutputView.printResultMessage(ballCount, StrikeCount);
+        OutputView.printResultMessage(new Result(ballCount, StrikeCount));
 
         //then
         assertThat(output.toString()).isEqualTo("1볼 1스트라이크\n");
@@ -57,7 +58,7 @@ public class OutputViewTest {
         int ballCount = 2;
         int StrikeCount = 0;
         //when
-        OutputView.printResultMessage(ballCount, StrikeCount);
+        OutputView.printResultMessage(new Result(ballCount, StrikeCount));
 
         //then
         assertThat(output.toString()).isEqualTo("2볼\n");
@@ -71,7 +72,7 @@ public class OutputViewTest {
         int ballCount = 0;
         int StrikeCount = 2;
         //when
-        OutputView.printResultMessage(ballCount, StrikeCount);
+        OutputView.printResultMessage(new Result(ballCount, StrikeCount));
 
         //then
         assertThat(output.toString()).isEqualTo("2스트라이크\n");
@@ -85,7 +86,7 @@ public class OutputViewTest {
         int ballCount = 0;
         int StrikeCount = 3;
         //when
-        OutputView.printResultMessage(ballCount, StrikeCount);
+        OutputView.printResultMessage(new Result(ballCount, StrikeCount));
 
         //then
         assertThat(output.toString()).isEqualTo("3스트라이크\n");
