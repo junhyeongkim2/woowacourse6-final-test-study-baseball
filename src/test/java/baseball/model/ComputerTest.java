@@ -15,9 +15,9 @@ public class ComputerTest {
     @Test
     void createNumbers_EqualResult_Success() {
         //given
-        Computer computer = new Computer(List.of(1, 2, 3));
+        Computer computer = Computer.of(List.of(1, 2, 3));
         //when
-        List<Integer> numbers = computer.createNumbers();
+        List<Integer> numbers = computer.getNumbers();
         //then
         System.out.println(numbers);
         assertThat(numbers.size()).isEqualTo(3);
@@ -31,7 +31,7 @@ public class ComputerTest {
     @Test
     void calculateStrike_EqualResult_Success() {
         //given
-        Computer computer = new Computer(List.of(1, 2, 3));
+        Computer computer = Computer.of(List.of(1,2,3));
         //when
         int strikeCount = computer.calculateStrike(List.of(1, 2, 4));
         //then
@@ -42,7 +42,7 @@ public class ComputerTest {
     @Test
     void calculateBall_EqualResult_Success() {
         //given
-        Computer computer = new Computer(List.of(1, 2, 3));
+        Computer computer = Computer.of(List.of(1,2,3));
         //when
         int ballCount = computer.calculateBall(List.of(3, 1, 4));
         //then
@@ -54,10 +54,10 @@ public class ComputerTest {
     @Test
     void calculateNothing_EqualResult_Success() {
         //given
-        Computer computer = new Computer(List.of(1, 2, 3));
+        Computer computer = Computer.of(List.of(1,2,3));
         //when
-        int strikeCount = computer.calculateStrike(List.of(4,5,6));
-        int ballCount = computer.calculateBall(List.of(4,5,6));
+        int strikeCount = computer.calculateStrike(List.of(4, 5, 6));
+        int ballCount = computer.calculateBall(List.of(4, 5, 6));
 
         //then
         assertThat(strikeCount).isEqualTo(0);
