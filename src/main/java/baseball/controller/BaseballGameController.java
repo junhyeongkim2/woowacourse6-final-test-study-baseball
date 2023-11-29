@@ -23,7 +23,7 @@ public class BaseballGameController {
             int strikeCount = computer.calculateStrike(userNumbers);
             OutputView.printResultMessage(ballCount, strikeCount);
             if (strikeCount == 3) {
-                restart();
+                restartOrEnd();
             }
         } while (restartFlag);
 
@@ -35,7 +35,7 @@ public class BaseballGameController {
                         Collectors.toList());
     }
 
-    private void restart() {
+    private void restartOrEnd() {
         String restartNumber = InputView.readRestartNumber();
         if (restartNumber.equals("1")) {
             computer = Computer.of(Generator.generateComputerNumbers());

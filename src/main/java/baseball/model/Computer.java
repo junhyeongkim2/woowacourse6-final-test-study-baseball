@@ -32,6 +32,12 @@ public class Computer {
     }
 
     public int calculateBall(List<Integer> userNumbers) {
-        return (int) userNumbers.stream().filter(userNumber -> numbers.contains(userNumber)).count();
+        int ballCount = 0;
+        for (int i = 0; i < userNumbers.size(); i++) {
+            if (numbers.get(i) != userNumbers.get(i) && numbers.contains(userNumbers.get(i))) {
+                ballCount++;
+            }
+        }
+        return ballCount;
     }
 }
