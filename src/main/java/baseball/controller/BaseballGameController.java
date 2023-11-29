@@ -15,17 +15,20 @@ public class BaseballGameController {
     private boolean restartFlag;
 
     public BaseballGameController() {
+        OutputView.printStartMessage();
         computer = Computer.of(Generator.generateComputerNumbers());
         restartFlag = true;
     }
 
     public void start() {
-        OutputView.printStartMessage();
+        repeatGame();
+    }
+
+    private void repeatGame() {
         do {
             UserNumbers userNumbers = new UserNumbers(InputView.readNumbers());
             createResult(userNumbers);
         } while (restartFlag);
-
     }
 
     private void createResult(UserNumbers userNumbers) {
