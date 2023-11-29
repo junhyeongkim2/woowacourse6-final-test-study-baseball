@@ -32,6 +32,10 @@ public class BaseballGameController {
     private void createResult(UserNumbers userNumbers) {
         Result result = new Result(computer.calculateBall(userNumbers), computer.calculateStrike(userNumbers));
         OutputView.printResultMessage(result);
+        isThreStrike(result);
+    }
+
+    private void isThreStrike(Result result) {
         if (result.isThreeStrike()) {
             restartOrEnd(InputView.readRestartNumber());
         }
