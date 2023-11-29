@@ -1,6 +1,7 @@
 package baseball.model;
 
 import java.util.List;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -10,14 +11,20 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class ComputerTest {
 
+    private Computer computer;
+
+    @BeforeEach
+    void setUp() {
+        computer = Computer.of(List.of(1, 2, 3));
+    }
 
     @DisplayName("컴퓨터 번호 생성 테스트")
     @Test
     void createNumbers_EqualResult_Success() {
         //given
-        Computer computer = Computer.of(List.of(1, 2, 3));
+        List<Integer> numbers;
         //when
-        List<Integer> numbers = computer.getComputerNumbers();
+        numbers = computer.getComputerNumbers();
         //then
         System.out.println(numbers);
         assertThat(numbers.size()).isEqualTo(3);
@@ -26,14 +33,13 @@ public class ComputerTest {
         assertThat(computer.getComputerNumbers().get(2)).isEqualTo(3);
     }
 
-
     @DisplayName("스트라이크 판별 성공 테스트")
     @Test
     void calculateStrike_EqualResult_Success() {
         //given
-        Computer computer = Computer.of(List.of(1, 2, 3));
+        int strikeCount;
         //when
-        int strikeCount = computer.calculateStrike(new UserNumbers("124"));
+        strikeCount = computer.calculateStrike(new UserNumbers("124"));
         //then
         assertThat(strikeCount).isEqualTo(2);
     }
@@ -42,22 +48,22 @@ public class ComputerTest {
     @Test
     void calculateBall_EqualResult_Success() {
         //given
-        Computer computer = Computer.of(List.of(1, 2, 3));
+        int ballCount;
         //when
-        int ballCount = computer.calculateBall(new UserNumbers("314"));
+        ballCount = computer.calculateBall(new UserNumbers("314"));
         //then
         assertThat(ballCount).isEqualTo(2);
     }
-
 
     @DisplayName("낫싱 판별 성공 테스트")
     @Test
     void calculateNothing_EqualResult_Success() {
         //given
-        Computer computer = Computer.of(List.of(1, 2, 3));
+        int strikeCount;
+        int ballCount;
         //when
-        int strikeCount = computer.calculateStrike(new UserNumbers("456"));
-        int ballCount = computer.calculateBall(new UserNumbers("456"));
+        strikeCount = computer.calculateStrike(new UserNumbers("456"));
+        ballCount = computer.calculateBall(new UserNumbers("456"));
 
         //then
         assertThat(strikeCount).isEqualTo(0);
