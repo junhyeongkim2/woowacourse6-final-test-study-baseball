@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class UserNumbers {
+
+    private static final String EMPTY_STRING = "";
     private final List<Integer> userNumbers;
 
     public UserNumbers(String input) {
@@ -33,7 +35,7 @@ public class UserNumbers {
     }
 
     private List<Integer> splitNumbers(String input) {
-        return Arrays.stream(input.split("")).map(userNumber -> Integer.parseInt(userNumber))
+        return Arrays.stream(input.split(EMPTY_STRING)).map(userNumber -> Integer.parseInt(userNumber))
                 .collect(
                         Collectors.toList());
     }
