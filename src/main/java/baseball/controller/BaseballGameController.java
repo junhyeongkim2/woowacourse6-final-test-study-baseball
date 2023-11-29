@@ -5,11 +5,12 @@ import baseball.model.Generator;
 import baseball.model.UserNumbers;
 import baseball.view.InputView;
 import baseball.view.OutputView;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class BaseballGameController {
+
+    private static final int THREE_STRIKE = 3;
+    private static final String RESTART_NUMBER = "1";
+    private static final String END_NUMBER = "2";
     private Computer computer;
     private boolean restartFlag;
 
@@ -31,11 +32,10 @@ public class BaseballGameController {
         int ballCount = computer.calculateBall(userNumbers);
         int strikeCount = computer.calculateStrike(userNumbers);
         OutputView.printResultMessage(ballCount, strikeCount);
-        if (strikeCount == 3) {
+        if (strikeCount == THREE_STRIKE) {
             restartOrEnd();
         }
     }
-
 
     private void restartOrEnd() {
         String restartNumber = InputView.readRestartNumber();
@@ -43,16 +43,16 @@ public class BaseballGameController {
         end(restartNumber);
     }
 
-    private void end(String restartNumber) {
-        if (restartNumber.equals("2")) {
-            restartFlag = false;
+    private void restart(String restartNumber) {
+        if (restartNumber.equals(RESTART_NUMBER)) {
+            computer = Computer.of(Generator.generateComputerNumbers());
+            restartFlag = true;
         }
     }
 
-    private void restart(String restartNumber) {
-        if (restartNumber.equals("1")) {
-            computer = Computer.of(Generator.generateComputerNumbers());
-            restartFlag = true;
+    private void end(String restartNumber) {
+        if (restartNumber.equals(END_NUMBER)) {
+            restartFlag = false;
         }
     }
 
