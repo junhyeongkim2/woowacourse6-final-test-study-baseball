@@ -27,4 +27,13 @@ public class Computer {
     }
 
 
+    public int calculateStrike(List<Integer> userNumbers) {
+        int strikeCount = 0;
+        for (int i = 0; i < userNumbers.size(); i++) {
+            if (numbers.get(i) == userNumbers.get(i)) {
+                strikeCount++;
+            }
+        }
+        return strikeCount;
+    }
 }
