@@ -14,7 +14,7 @@ public class UserNumbersTest {
     @Test
     void compareDigit_EqualResult_Success() {
         //given
-        UserNumbers userNumbers = new UserNumbers(List.of(1, 2, 3));
+        UserNumbers userNumbers = new UserNumbers("123");
         //when
         int sameDigitCount = userNumbers.compareDigit(List.of(1, 2, 3));
         //then
@@ -26,7 +26,7 @@ public class UserNumbersTest {
     @Test
     void compareDifferentDigitAndIncludedNumber_EqualResult_Success() {
         //given
-        UserNumbers userNumbers = new UserNumbers(List.of(2, 1, 5));
+        UserNumbers userNumbers = new UserNumbers("215");
         //when
         int includedNumber = userNumbers.compareDifferentDigitAndIncludedNumber(List.of(1, 2, 3));
         //then

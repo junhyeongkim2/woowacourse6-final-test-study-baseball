@@ -33,7 +33,7 @@ public class ComputerTest {
         //given
         Computer computer = Computer.of(List.of(1, 2, 3));
         //when
-        int strikeCount = computer.calculateStrike(new UserNumbers(List.of(1, 2, 4)));
+        int strikeCount = computer.calculateStrike(new UserNumbers("124"));
         //then
         assertThat(strikeCount).isEqualTo(2);
     }
@@ -44,7 +44,7 @@ public class ComputerTest {
         //given
         Computer computer = Computer.of(List.of(1, 2, 3));
         //when
-        int ballCount = computer.calculateBall(new UserNumbers(List.of(3, 1, 4)));
+        int ballCount = computer.calculateBall(new UserNumbers("314"));
         //then
         assertThat(ballCount).isEqualTo(2);
     }
@@ -56,8 +56,8 @@ public class ComputerTest {
         //given
         Computer computer = Computer.of(List.of(1, 2, 3));
         //when
-        int strikeCount = computer.calculateStrike(new UserNumbers(List.of(4, 5, 6)));
-        int ballCount = computer.calculateBall(new UserNumbers(List.of(4, 5, 6)));
+        int strikeCount = computer.calculateStrike(new UserNumbers("456"));
+        int ballCount = computer.calculateBall(new UserNumbers("456"));
 
         //then
         assertThat(strikeCount).isEqualTo(0);

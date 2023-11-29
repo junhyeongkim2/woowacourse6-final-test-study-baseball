@@ -21,7 +21,7 @@ public class BaseballGameController {
     public void start() {
         OutputView.printStartMessage();
         do {
-            UserNumbers userNumbers = new UserNumbers(splitNumbers(InputView.readNumbers()));
+            UserNumbers userNumbers = new UserNumbers(InputView.readNumbers());
             createResult(userNumbers);
         } while (restartFlag);
 
@@ -36,11 +36,6 @@ public class BaseballGameController {
         }
     }
 
-    private List<Integer> splitNumbers(String input) {
-        return Arrays.stream(input.split("")).map(userNumber -> Integer.parseInt(userNumber))
-                .collect(
-                        Collectors.toList());
-    }
 
     private void restartOrEnd() {
         String restartNumber = InputView.readRestartNumber();

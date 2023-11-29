@@ -1,12 +1,14 @@
 package baseball.model;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class UserNumbers {
     private final List<Integer> userNumbers;
 
-    public UserNumbers(List<Integer> userNumbers) {
-        this.userNumbers = userNumbers;
+    public UserNumbers(String input) {
+        this.userNumbers = splitNumbers(input);
     }
 
     public int compareDigit(List<Integer> computerNumbers) {
@@ -28,6 +30,12 @@ public class UserNumbers {
             }
         }
         return includedCount;
+    }
+
+    private List<Integer> splitNumbers(String input) {
+        return Arrays.stream(input.split("")).map(userNumber -> Integer.parseInt(userNumber))
+                .collect(
+                        Collectors.toList());
     }
 
 
