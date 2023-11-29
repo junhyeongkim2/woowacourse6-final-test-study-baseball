@@ -50,4 +50,19 @@ public class ComputerTest {
     }
 
 
+    @DisplayName("낫싱 판별 성공 테스트")
+    @Test
+    void calculateNothing_EqualResult_Success() {
+        //given
+        Computer computer = new Computer(List.of(1, 2, 3));
+        //when
+        int strikeCount = computer.calculateStrike(List.of(4,5,6));
+        int ballCount = computer.calculateBall(List.of(4,5,6));
+
+        //then
+        assertThat(strikeCount).isEqualTo(0);
+        assertThat(ballCount).isEqualTo(0);
+    }
+
+
 }
