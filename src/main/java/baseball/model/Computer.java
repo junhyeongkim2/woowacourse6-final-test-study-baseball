@@ -1,43 +1,29 @@
 package baseball.model;
 
-import camp.nextstep.edu.missionutils.Randoms;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Computer {
 
-    private final List<Integer> numbers;
+    private final List<Integer> computerNumbers;
 
-    private Computer(List<Integer> numbers) {
-        this.numbers = numbers;
+    private Computer(List<Integer> computerNumbers) {
+        this.computerNumbers = computerNumbers;
     }
 
     public static Computer of(List<Integer> numbers) {
         return new Computer(numbers);
     }
 
-    public List<Integer> getNumbers() {
-        return numbers;
+    public List<Integer> getComputerNumbers() {
+        return computerNumbers;
     }
 
 
-    public int calculateStrike(List<Integer> userNumbers) {
-        int strikeCount = 0;
-        for (int i = 0; i < userNumbers.size(); i++) {
-            if (numbers.get(i) == userNumbers.get(i)) {
-                strikeCount++;
-            }
-        }
-        return strikeCount;
+    public int calculateStrike(UserNumbers userNumbers) {
+        return userNumbers.compareDigit(computerNumbers);
     }
 
-    public int calculateBall(List<Integer> userNumbers) {
-        int ballCount = 0;
-        for (int i = 0; i < userNumbers.size(); i++) {
-            if (numbers.get(i) != userNumbers.get(i) && numbers.contains(userNumbers.get(i))) {
-                ballCount++;
-            }
-        }
-        return ballCount;
+    public int calculateBall(UserNumbers userNumbers) {
+        return userNumbers.compareDifferentDigitAndIncludedNumber(computerNumbers);
     }
 }

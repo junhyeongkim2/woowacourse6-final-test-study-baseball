@@ -2,6 +2,7 @@ package baseball.controller;
 
 import baseball.model.Computer;
 import baseball.model.Generator;
+import baseball.model.UserNumbers;
 import baseball.view.InputView;
 import baseball.view.OutputView;
 import java.util.Arrays;
@@ -18,7 +19,7 @@ public class BaseballGameController {
         computer = Computer.of(Generator.generateComputerNumbers());
 
         do {
-            List<Integer> userNumbers = splitNumbers(InputView.readNumbers());
+            UserNumbers userNumbers = new UserNumbers(splitNumbers(InputView.readNumbers()));
             int ballCount = computer.calculateBall(userNumbers);
             int strikeCount = computer.calculateStrike(userNumbers);
             OutputView.printResultMessage(ballCount, strikeCount);

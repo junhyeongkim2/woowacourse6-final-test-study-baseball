@@ -17,13 +17,13 @@ public class ComputerTest {
         //given
         Computer computer = Computer.of(List.of(1, 2, 3));
         //when
-        List<Integer> numbers = computer.getNumbers();
+        List<Integer> numbers = computer.getComputerNumbers();
         //then
         System.out.println(numbers);
         assertThat(numbers.size()).isEqualTo(3);
-        assertThat(computer.getNumbers().get(0)).isEqualTo(1);
-        assertThat(computer.getNumbers().get(1)).isEqualTo(2);
-        assertThat(computer.getNumbers().get(2)).isEqualTo(3);
+        assertThat(computer.getComputerNumbers().get(0)).isEqualTo(1);
+        assertThat(computer.getComputerNumbers().get(1)).isEqualTo(2);
+        assertThat(computer.getComputerNumbers().get(2)).isEqualTo(3);
     }
 
 
@@ -31,9 +31,9 @@ public class ComputerTest {
     @Test
     void calculateStrike_EqualResult_Success() {
         //given
-        Computer computer = Computer.of(List.of(1,2,3));
+        Computer computer = Computer.of(List.of(1, 2, 3));
         //when
-        int strikeCount = computer.calculateStrike(List.of(1, 2, 4));
+        int strikeCount = computer.calculateStrike(new UserNumbers(List.of(1, 2, 4)));
         //then
         assertThat(strikeCount).isEqualTo(2);
     }
@@ -42,9 +42,9 @@ public class ComputerTest {
     @Test
     void calculateBall_EqualResult_Success() {
         //given
-        Computer computer = Computer.of(List.of(1,2,3));
+        Computer computer = Computer.of(List.of(1, 2, 3));
         //when
-        int ballCount = computer.calculateBall(List.of(3, 1, 4));
+        int ballCount = computer.calculateBall(new UserNumbers(List.of(3, 1, 4)));
         //then
         assertThat(ballCount).isEqualTo(2);
     }
@@ -54,10 +54,10 @@ public class ComputerTest {
     @Test
     void calculateNothing_EqualResult_Success() {
         //given
-        Computer computer = Computer.of(List.of(1,2,3));
+        Computer computer = Computer.of(List.of(1, 2, 3));
         //when
-        int strikeCount = computer.calculateStrike(List.of(4, 5, 6));
-        int ballCount = computer.calculateBall(List.of(4, 5, 6));
+        int strikeCount = computer.calculateStrike(new UserNumbers(List.of(4, 5, 6)));
+        int ballCount = computer.calculateBall(new UserNumbers(List.of(4, 5, 6)));
 
         //then
         assertThat(strikeCount).isEqualTo(0);
