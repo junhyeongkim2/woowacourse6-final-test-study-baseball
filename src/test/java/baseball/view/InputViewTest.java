@@ -31,4 +31,19 @@ public class InputViewTest {
                 IllegalArgumentException.class);
     }
 
+    @DisplayName("재시작 입력 1 또는 2가 아닌 경우 예외 발생 테스트")
+    @Test
+    void validateReadRestartNumber_IsNotOneorTwo_ExceptionThrow() {
+        assertThatThrownBy(() -> InputView.validateReadRestartNumber("3")).isInstanceOf(
+                IllegalArgumentException.class);
+        assertThatThrownBy(() -> InputView.validateReadRestartNumber("4")).isInstanceOf(
+                IllegalArgumentException.class);
+        assertThatThrownBy(() -> InputView.validateReadRestartNumber("0")).isInstanceOf(
+                IllegalArgumentException.class);
+        assertThatThrownBy(() -> InputView.validateReadRestartNumber("a")).isInstanceOf(
+                IllegalArgumentException.class);
+        assertThatThrownBy(() -> InputView.validateReadRestartNumber("-1")).isInstanceOf(
+                IllegalArgumentException.class);
+    }
+
 }
