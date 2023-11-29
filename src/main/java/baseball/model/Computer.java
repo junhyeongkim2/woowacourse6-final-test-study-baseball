@@ -36,4 +36,8 @@ public class Computer {
         }
         return strikeCount;
     }
+
+    public int calculateBall(List<Integer> userNumbers) {
+        return (int) userNumbers.stream().filter(userNumber -> numbers.contains(userNumber)).count();
+    }
 }

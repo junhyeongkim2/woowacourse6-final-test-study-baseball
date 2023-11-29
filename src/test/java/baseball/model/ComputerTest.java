@@ -38,5 +38,16 @@ public class ComputerTest {
         assertThat(strikeCount).isEqualTo(2);
     }
 
+    @DisplayName("볼 판별 성공 테스트")
+    @Test
+    void calculateBall_EqualResult_Success() {
+        //given
+        Computer computer = new Computer(List.of(1, 2, 3));
+        //when
+        int ballCount = computer.calculateBall(List.of(3, 1, 4));
+        //then
+        assertThat(ballCount).isEqualTo(2);
+    }
+
 
 }
