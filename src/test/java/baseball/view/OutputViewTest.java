@@ -92,5 +92,19 @@ public class OutputViewTest {
         assertThat(output.toString()).isEqualTo("3스트라이크\n");
     }
 
+    @DisplayName("낫싱 결과 메세지 출력 성공 테스트")
+    @Test
+    void printResultMessage_EqualNothingMessage_Success() {
+        //given
+        ByteArrayOutputStream output = captureOutputValues();
+        int ballCount = 0;
+        int StrikeCount = 0;
+        //when
+        OutputView.printResultMessage(new Result(ballCount, StrikeCount));
+
+        //then
+        assertThat(output.toString()).isEqualTo("낫싱\n");
+    }
+
 
 }
