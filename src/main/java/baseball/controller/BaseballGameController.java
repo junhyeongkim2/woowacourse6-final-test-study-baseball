@@ -2,6 +2,7 @@ package baseball.controller;
 
 import baseball.model.Computer;
 import baseball.model.Generator;
+import baseball.model.Result;
 import baseball.model.UserNumbers;
 import baseball.view.InputView;
 import baseball.view.OutputView;
@@ -29,10 +30,9 @@ public class BaseballGameController {
     }
 
     private void createResult(UserNumbers userNumbers) {
-        int ballCount = computer.calculateBall(userNumbers);
-        int strikeCount = computer.calculateStrike(userNumbers);
-        OutputView.printResultMessage(ballCount, strikeCount);
-        if (strikeCount == THREE_STRIKE) {
+        Result result = new Result(computer.calculateBall(userNumbers), computer.calculateStrike(userNumbers));
+        OutputView.printResultMessage(result);
+        if (result.isThreeStrike()) {
             restartOrEnd(InputView.readRestartNumber());
         }
     }
