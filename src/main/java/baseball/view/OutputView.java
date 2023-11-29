@@ -13,25 +13,25 @@ public class OutputView {
         printNothing(ballCount,strikeCount);
     }
 
-    public static void printOnlyBall(int ballCount, int strikeCount) {
+    private static void printOnlyBall(int ballCount, int strikeCount) {
         if (ballCount != 0 && strikeCount == 0) {
             System.out.println(ballCount + "볼");
         }
     }
 
-    public static void printOnlyStrike(int ballCount, int strikeCount) {
+    private static void printOnlyStrike(int ballCount, int strikeCount) {
         if (ballCount == 0 && strikeCount != 0) {
             System.out.println(strikeCount + "스트라이크");
         }
     }
 
-    public static void printBallAndStrike(int ballCount, int strikeCount) {
+    private static void printBallAndStrike(int ballCount, int strikeCount) {
         if (ballCount != 0 && strikeCount != 0) {
             System.out.println(ballCount + "볼 " + strikeCount + "스트라이크");
         }
     }
 
-    public static void printNothing(int ballCount, int strikeCount){
+    private static void printNothing(int ballCount, int strikeCount){
         if(ballCount==0 && strikeCount==0){
             System.out.println("낫싱");
         }

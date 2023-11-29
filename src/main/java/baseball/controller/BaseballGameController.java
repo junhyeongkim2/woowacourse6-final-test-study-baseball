@@ -16,17 +16,23 @@ public class BaseballGameController {
 
         do {
             List<Integer> userNumbers = splitNumbers(InputView.readNumbers());
-            computer.calculateBall(userNumbers);
-            computer.calculateStrike(userNumbers);
+            int ballCount = computer.calculateBall(userNumbers);
+            int strikeCount = computer.calculateStrike(userNumbers);
+            OutputView.printResultMessage(ballCount, strikeCount);
+            if (strikeCount == 3) {
+
+            }
         } while (true);
 
     }
 
-    public List<Integer> splitNumbers(String input) {
+    private List<Integer> splitNumbers(String input) {
         return Arrays.stream(input.split("")).map(userNumber -> Integer.parseInt(userNumber))
                 .collect(
                         Collectors.toList());
     }
+
+
 
 
 }
