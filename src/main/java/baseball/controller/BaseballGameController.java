@@ -9,7 +9,6 @@ import baseball.view.OutputView;
 
 public class BaseballGameController {
 
-    private static final int THREE_STRIKE = 3;
     private static final String RESTART_NUMBER = "1";
     private static final String END_NUMBER = "2";
     private Computer computer;

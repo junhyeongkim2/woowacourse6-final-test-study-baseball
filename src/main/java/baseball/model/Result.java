@@ -2,6 +2,8 @@ package baseball.model;
 
 public class Result {
 
+    private static final int THREE_STRIKE = 3;
+    private static final int ZERO_BALL = 0;
     private final int ballCount;
     private final int strikeCount;
 
@@ -11,7 +13,7 @@ public class Result {
     }
 
     public Boolean isThreeStrike() {
-        if (strikeCount == 3 && ballCount == 0) {
+        if (strikeCount == THREE_STRIKE && ballCount == ZERO_BALL) {
             return true;
         }
         return false;
