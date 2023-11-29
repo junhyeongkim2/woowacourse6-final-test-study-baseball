@@ -17,7 +17,6 @@ public class GeneratorTest {
         //when
         numbers = Generator.generateComputerNumbers();
         //then
-        System.out.println(numbers);
         assertThat(numbers.size()).isEqualTo(3);
     }
 

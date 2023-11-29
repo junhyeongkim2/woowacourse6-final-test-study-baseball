@@ -13,6 +13,7 @@ public class Generator {
                 numbers.add(randomNumber);
             }
         }
+        System.out.println("new Numbers : "+numbers);
         return numbers;
     }
 }

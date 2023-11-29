@@ -10,9 +10,12 @@ import java.util.stream.Collectors;
 
 public class BaseballGameController {
 
-    void start() {
+    private Computer computer;
+    private boolean restartFlag = true;
+
+    public void start() {
         OutputView.printStartMessage();
-        Computer computer = Computer.of(Generator.generateComputerNumbers());
+        computer = Computer.of(Generator.generateComputerNumbers());
 
         do {
             List<Integer> userNumbers = splitNumbers(InputView.readNumbers());
@@ -20,9 +23,9 @@ public class BaseballGameController {
             int strikeCount = computer.calculateStrike(userNumbers);
             OutputView.printResultMessage(ballCount, strikeCount);
             if (strikeCount == 3) {
-                InputView.readRestartNumber();
+                restart();
             }
-        } while (true);
+        } while (restartFlag);
 
     }
 
@@ -30,6 +33,17 @@ public class BaseballGameController {
         return Arrays.stream(input.split("")).map(userNumber -> Integer.parseInt(userNumber))
                 .collect(
                         Collectors.toList());
+    }
+
+    private void restart() {
+        String restartNumber = InputView.readRestartNumber();
+        if (restartNumber.equals("1")) {
+            computer = Computer.of(Generator.generateComputerNumbers());
+            restartFlag = true;
+        }
+        if (restartNumber.equals("2")) {
+            restartFlag = false;
+        }
     }
 
 
