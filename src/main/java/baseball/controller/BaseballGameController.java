@@ -33,12 +33,11 @@ public class BaseballGameController {
         int strikeCount = computer.calculateStrike(userNumbers);
         OutputView.printResultMessage(ballCount, strikeCount);
         if (strikeCount == THREE_STRIKE) {
-            restartOrEnd();
+            restartOrEnd(InputView.readRestartNumber());
         }
     }
 
-    private void restartOrEnd() {
-        String restartNumber = InputView.readRestartNumber();
+    private void restartOrEnd(String restartNumber) {
         restart(restartNumber);
         end(restartNumber);
     }
