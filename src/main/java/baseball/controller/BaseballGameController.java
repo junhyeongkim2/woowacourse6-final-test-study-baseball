@@ -20,7 +20,7 @@ public class BaseballGameController {
             int strikeCount = computer.calculateStrike(userNumbers);
             OutputView.printResultMessage(ballCount, strikeCount);
             if (strikeCount == 3) {
-
+                InputView.readRestartNumber();
             }
         } while (true);
 
@@ -31,8 +31,6 @@ public class BaseballGameController {
                 .collect(
                         Collectors.toList());
     }
-
-
 
 
 }
